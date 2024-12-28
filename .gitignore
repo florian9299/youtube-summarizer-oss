@@ -199,5 +199,5 @@ yarn-error.log*
 # Bun
 bun.lockb
 
-# Optional: keep extension icons in git
-!public/icons/
+
+*.pem
