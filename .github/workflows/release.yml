@@ -1,0 +1,51 @@
+name: Release Extension
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build extension
+        run: bun run build
+
+      - name: Generate extension key
+        run: |
+          echo "${{ secrets.EXTENSION_PRIVATE_KEY }}" > key.pem
+          chmod 600 key.pem
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@latest
+
+      - name: Package extension
+        run: |
+          chrome --pack-extension=dist --pack-extension-key=key.pem
+          mv dist.crx extension.crx
+
+      - name: Create ZIP archive (for Chrome Web Store)
+        run: zip -r extension.zip dist/*
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            extension.crx
+            extension.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true

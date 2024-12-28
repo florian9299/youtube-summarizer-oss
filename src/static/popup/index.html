@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YouTube Summary Settings</title>
+    <style>
+      body {
+        width: 300px;
+        padding: 20px;
+        font-family: "Roboto", sans-serif;
+        background-color: #1a1b1e;
+        color: #f3f4f6;
+        margin: 0;
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: #f3f4f6;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #d1d5db;
+        font-size: 14px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #2c2d30;
+        border-radius: 8px;
+        font-size: 14px;
+        background-color: #2c2d30;
+        color: #f3f4f6;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #ef4444;
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+      }
+
+      .provider-select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #2c2d30;
+        border-radius: 8px;
+        font-size: 14px;
+        background-color: #2c2d30;
+        color: #f3f4f6;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        appearance: none;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="%239CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 32px;
+      }
+
+      .provider-select:focus {
+        outline: none;
+        border-color: #ef4444;
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+      }
+
+      .save-button {
+        background-color: #ef4444;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .save-button:hover {
+        background-color: #dc2626;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+      }
+
+      .save-button:active {
+        transform: translateY(0);
+      }
+
+      .status {
+        margin-top: 12px;
+        text-align: center;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 6px;
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      .success {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+
+      .error {
+        background-color: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>YouTube Summary Settings</h2>
+
+    <div class="input-group">
+      <label for="apiKey">API Key</label>
+      <input
+        type="text"
+        id="apiKey"
+        placeholder="Enter your API key"
+        spellcheck="false"
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="provider">AI Provider</label>
+      <select id="provider" class="provider-select">
+        <option value="chatgpt">ChatGPT</option>
+        <option value="googleai">Google AI</option>
+        <option value="groq">Groq</option>
+      </select>
+    </div>
+
+    <button id="save" class="save-button">Save Settings</button>
+    <div id="status" class="status"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
