@@ -1,63 +1,74 @@
-# YouTube Video Summarizer Chrome Extension
+# YouTube Summary Extension
 
-A Chrome extension that uses AI to generate summaries of YouTube videos using their subtitles.
+A Chrome extension that generates concise summaries of YouTube videos using AI. Supports multiple AI providers including OpenAI, Google AI, and OpenRouter.
 
 ## Features
 
-- Adds a "Summarize" button to YouTube video pages
-- Extracts video subtitles (including auto-generated ones)
-- Supports multiple AI providers (ChatGPT, Google AI, Groq)
-- Customizable API settings
-- Clean and modern UI
+- Generate summaries of YouTube videos
+- Chat with AI about the video content
+- Support for multiple AI providers
+- Real-time streaming responses
+- Dark mode interface
 
 ## Installation
 
-1. Clone this repository
-2. Install dependencies:
+### Method 1: Direct Installation (Recommended)
+
+1. Go to the [Releases](../../releases) page
+2. Download `source.zip` from the latest release
+3. Extract the ZIP file
+4. Install dependencies:
    ```bash
    bun install
    ```
-3. Build the extension:
+5. Build the extension:
    ```bash
    bun run build
    ```
-4. Load the extension in Chrome:
-   - Open Chrome and go to `chrome://extensions/`
-   - Enable "Developer mode"
-   - Click "Load unpacked"
-   - Select the `public` directory from this project
+6. Open Chrome and navigate to `chrome://extensions`
+7. Enable "Developer mode" in the top right
+8. Click "Load unpacked" and select the `dist` directory
+
+### Method 2: Manual Build
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/youtube-summarizer-oss.git
+   cd youtube-summarizer-oss
+   ```
+2. Follow steps 4-8 from Method 1
 
 ## Configuration
 
 1. Click the extension icon in Chrome
-2. Enter your API key for your chosen AI provider
-3. Select your preferred AI provider
-4. Click "Save Settings"
+2. Select your preferred AI provider
+3. Enter your API key
+4. Optional: Select a specific model from the available options
 
-## Supported AI Providers
+## Usage
 
-- **ChatGPT**: Uses OpenAI's GPT-4 model
-- **Google AI**: Uses Google's Gemini Pro model
-- **Groq**: Uses Mixtral-8x7B model
+1. Navigate to any YouTube video
+2. Click the "Summarize" button below the video
+3. Wait for the AI to generate a summary
+4. Use the chat feature to ask questions about the video
 
 ## Development
 
-To start development with hot reloading:
-
 ```bash
+# Install dependencies
+bun install
+
+# Build for production
+bun run build
+
+# Watch for changes during development
 bun run dev
 ```
 
-## Building for Production
+## Contributing
 
-To build the extension for production:
-
-```bash
-bun run build
-```
-
-The built extension will be in the `public` directory.
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
-MIT
+[MIT](LICENSE)
