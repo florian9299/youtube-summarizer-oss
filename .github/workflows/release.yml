@@ -35,20 +35,11 @@ jobs:
           cp -r public/* dist/
           ls -la dist
 
-      - name: Generate extension key
+      - name: Create source ZIP (for direct loading)
         run: |
-          echo "${{ secrets.EXTENSION_PRIVATE_KEY }}" > key.pem
-          chmod 600 key.pem
+          zip -r source.zip . -x "*.git*" "node_modules/*" "dist/*"
 
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@latest
-
-      - name: Package extension
-        run: |
-          chrome --pack-extension="$GITHUB_WORKSPACE/dist" --pack-extension-key="$GITHUB_WORKSPACE/key.pem"
-          mv dist.crx extension.crx
-
-      - name: Create ZIP archive (for Chrome Web Store)
+      - name: Create build ZIP (for Chrome Web Store)
         run: zip -r extension.zip dist/*
 
       - name: Create Release
@@ -56,8 +47,17 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            extension.crx
+            source.zip
             extension.zip
+          body: |
+            ## Installation Instructions
+            1. Download `source.zip`
+            2. Extract the ZIP file
+            3. Install dependencies: `bun install`
+            4. Build the extension: `bun run build`
+            5. Open Chrome and go to `chrome://extensions`
+            6. Enable "Developer mode" in the top right
+            7. Click "Load unpacked" and select the `dist` directory
           draft: false
           prerelease: false
           generate_release_notes: true
