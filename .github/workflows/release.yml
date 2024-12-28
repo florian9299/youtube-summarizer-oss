@@ -33,7 +33,10 @@ jobs:
 
       - name: Package extension
         run: |
-          chrome --pack-extension=dist --pack-extension-key=key.pem
+          ls -la
+          pwd
+          ls -la dist || echo "dist directory not found"
+          chrome --pack-extension="$GITHUB_WORKSPACE/dist" --pack-extension-key="$GITHUB_WORKSPACE/key.pem"
           mv dist.crx extension.crx
 
       - name: Create ZIP archive (for Chrome Web Store)
