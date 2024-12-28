@@ -22,11 +22,13 @@ jobs:
 
       - name: Build extension
         run: |
+          mkdir -p dist
           bun run build
           ls -la dist || echo "dist directory not found"
 
       - name: Copy public files
         run: |
+          mkdir -p dist
           cp -r public/* dist/
           ls -la dist
 
