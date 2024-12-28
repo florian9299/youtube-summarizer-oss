@@ -13,11 +13,12 @@ A Chrome extension that generates concise summaries of YouTube videos using AI. 
 ## Quick Installation
 
 1. Go to the [Releases](../../releases) page
-2. Download `extension-unpacked.zip` from the latest release
-3. Extract the ZIP file to a folder
-4. Open Chrome and go to `chrome://extensions`
-5. Enable "Developer mode" in the top right
-6. Click "Load unpacked" and select the folder you extracted
+2. Download `extension-unpacked.zip`
+3. Open Chrome and go to `chrome://extensions`
+4. Enable "Developer mode" in the top right
+5. Drag and drop `extension-unpacked.zip` directly onto the extensions page
+
+That's it! No need to extract the ZIP or click any buttons.
 
 ## Configuration
 
