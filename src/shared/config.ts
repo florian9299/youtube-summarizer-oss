@@ -5,7 +5,7 @@ export interface AIProvider {
 }
 
 export const providers: AIProvider[] = [
-  { name: "ChatGPT", baseUrl: "https://api.openai.com/v1", model: "gpt-4" },
+  { name: "ChatGPT", baseUrl: "https://api.openai.com/v1", model: "gpt-4o" },
   {
     name: "Google AI",
     baseUrl: "https://generativelanguage.googleapis.com/v1beta/openai",

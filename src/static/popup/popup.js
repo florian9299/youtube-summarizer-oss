@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       chatgpt: {
         name: 'ChatGPT',
         baseUrl: 'https://api.openai.com/v1',
-        model: 'gpt-4'
+        model: 'gpt-4o'
       },
       googleai: {
         name: 'Google AI',
