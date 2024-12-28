@@ -35,29 +35,25 @@ jobs:
           cp -r public/* dist/
           ls -la dist
 
-      - name: Create source ZIP (for direct loading)
+      - name: Create unpacked extension ZIP
         run: |
-          zip -r source.zip . -x "*.git*" "node_modules/*" "dist/*"
-
-      - name: Create build ZIP (for Chrome Web Store)
-        run: zip -r extension.zip dist/*
+          cd dist
+          zip -r ../extension-unpacked.zip *
+          cd ..
 
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            source.zip
-            extension.zip
+            extension-unpacked.zip
           body: |
-            ## Installation Instructions
-            1. Download `source.zip`
-            2. Extract the ZIP file
-            3. Install dependencies: `bun install`
-            4. Build the extension: `bun run build`
-            5. Open Chrome and go to `chrome://extensions`
-            6. Enable "Developer mode" in the top right
-            7. Click "Load unpacked" and select the `dist` directory
+            ## Quick Installation
+            1. Download `extension-unpacked.zip`
+            2. Extract the ZIP file to a folder
+            3. Open Chrome and go to `chrome://extensions`
+            4. Enable "Developer mode" in the top right
+            5. Click "Load unpacked" and select the folder you extracted
           draft: false
           prerelease: false
           generate_release_notes: true

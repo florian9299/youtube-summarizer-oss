@@ -10,33 +10,14 @@ A Chrome extension that generates concise summaries of YouTube videos using AI. 
 - Real-time streaming responses
 - Dark mode interface
 
-## Installation
-
-### Method 1: Direct Installation (Recommended)
+## Quick Installation
 
 1. Go to the [Releases](../../releases) page
-2. Download `source.zip` from the latest release
-3. Extract the ZIP file
-4. Install dependencies:
-   ```bash
-   bun install
-   ```
-5. Build the extension:
-   ```bash
-   bun run build
-   ```
-6. Open Chrome and navigate to `chrome://extensions`
-7. Enable "Developer mode" in the top right
-8. Click "Load unpacked" and select the `dist` directory
-
-### Method 2: Manual Build
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/youtube-summarizer-oss.git
-   cd youtube-summarizer-oss
-   ```
-2. Follow steps 4-8 from Method 1
+2. Download `extension-unpacked.zip` from the latest release
+3. Extract the ZIP file to a folder
+4. Open Chrome and go to `chrome://extensions`
+5. Enable "Developer mode" in the top right
+6. Click "Load unpacked" and select the folder you extracted
 
 ## Configuration
 
@@ -58,11 +39,11 @@ A Chrome extension that generates concise summaries of YouTube videos using AI. 
 # Install dependencies
 bun install
 
-# Build for production
-bun run build
-
 # Watch for changes during development
 bun run dev
+
+# Build for production
+bun run build
 ```
 
 ## Contributing
