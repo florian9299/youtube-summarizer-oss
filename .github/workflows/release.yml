@@ -21,7 +21,14 @@ jobs:
         run: bun install
 
       - name: Build extension
-        run: bun run build
+        run: |
+          bun run build
+          ls -la dist || echo "dist directory not found"
+
+      - name: Copy public files
+        run: |
+          cp -r public/* dist/
+          ls -la dist
 
       - name: Generate extension key
         run: |
@@ -33,9 +40,6 @@ jobs:
 
       - name: Package extension
         run: |
-          ls -la
-          pwd
-          ls -la dist || echo "dist directory not found"
           chrome --pack-extension="$GITHUB_WORKSPACE/dist" --pack-extension-key="$GITHUB_WORKSPACE/key.pem"
           mv dist.crx extension.crx
 
