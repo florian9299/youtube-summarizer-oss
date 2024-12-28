@@ -1,5 +1,9 @@
 # YouTube Summary Extension
 
+<img width="438" alt="image" src="https://github.com/user-attachments/assets/71ccb7d7-49cd-46a6-a976-4282e6963028"
+  />
+
+
 A Chrome extension that generates concise summaries of YouTube videos using AI. Supports multiple AI providers including OpenAI, Google AI, and OpenRouter.
 
 ## Features
