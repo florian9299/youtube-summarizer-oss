@@ -38,6 +38,8 @@ export async function copyStaticFiles() {
   // Copy static files
   await copyFile("src/static/styles/styles.css", "public/content/styles.css");
   await copyFile("src/static/manifest/manifest.json", "public/manifest.json");
+  await copyFile("src/static/popup/index.html", "public/popup/index.html");
+  await copyFile("src/static/popup/styles.css", "public/popup/styles.css");
 }
 
 async function buildExtension() {
