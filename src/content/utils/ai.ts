@@ -81,7 +81,7 @@ export async function* generateSummary(
   transcript: string,
   provider: AIProvider
 ): AsyncGenerator<string, void, unknown> {
-  const prompt = `Provide a concise summary of this YouTube video transcript using markdown formatting:
+  const prompt = `Provide a concise summary of this YouTube video transcript in German using markdown formatting:
 
 ${transcript}
 
